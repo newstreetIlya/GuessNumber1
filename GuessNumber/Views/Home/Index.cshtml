@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Угадай число</h2>
+<div ng-app="AngApp" ng-controller="GameCtrl">
+    <p>Шаг: {{Stap}}</p>
+    <div ng-repeat="n in Number">
+        <input ng-model="n.Value" type="number" min="0" max="9" />
+        <br />
+        <span>{{n.Status}}</span>
+    </div>
+    <div ng-show="ShowFinish">
+        <p>Вы выйграли!!! Количество шагов: {{Stap}}</p>
+    </div>
+    <button ng-show="!ShowFinish" ng-click="BtnCheck(Number)">Проверить</button>
+    <button ng-show="ShowFinish" ng-click="BtnNewGame()">Новая игра</button>
+</div>
